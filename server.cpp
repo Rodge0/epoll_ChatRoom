@@ -41,7 +41,8 @@ int main(int argc, char *argv[]) {
   if (bind(listenfd, (struct sockaddr *) &serverAddr, sizeof(serverAddr)) < 0) {
     error("bind error");
   }
-  
+
+  // SOMAXCONN is the max length of the listen queue for every port defined by OS
   // listen socket, SOMAXCONN -> backlog will be a maximun reasonable value
   if (listen(listenfd, SOMAXCONN) < 0) {
     error("listen error");
